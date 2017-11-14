@@ -11,6 +11,10 @@ public class Contact {
         this.phoneNumber = phoneNumber ;
     }
 
+    public Boolean Is_part_of_name(String contains){
+        return (this.name.toLowerCase()).contains(contains) ;
+    }
+
     @Override
     public String toString() {
        if (email==null){
