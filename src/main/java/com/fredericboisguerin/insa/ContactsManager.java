@@ -11,8 +11,14 @@ public class ContactsManager {
 
     private List<Contact> contacts = new ArrayList<>();
 
-    public void addContact(String name, String email, String phoneNumber) {
-        contacts.add( new Contact(name,email,phoneNumber)) ;
+    public void addContact(String name, String email, String phoneNumber)throws Exception{
+        if (!Is_name_valid(name)) throw new InvalidContactNameException();
+        else{
+            if (!Is_email_invalid(email)) throw new InvalidEmailException();
+            else contacts.add( new Contact(name,email,phoneNumber));
+        }
+
+
     }
 
     public void printAllContacts() {
@@ -38,4 +44,17 @@ public class ContactsManager {
         }
         System.out.println(sj.toString());
     }
-}
+
+    private Boolean Is_email_invalid(String email){
+        if (email == null) return true;
+        if (!(email.contains("@"))) return false;
+        else return true ;
+    }
+    private Boolean Is_name_valid(String name){
+        if (name == null) return false;
+        if (name == "") return false;
+        else return true;
+    }
+    }
+
+
