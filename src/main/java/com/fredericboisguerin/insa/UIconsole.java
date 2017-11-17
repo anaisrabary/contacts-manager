@@ -3,12 +3,19 @@ package com.fredericboisguerin.insa;
 
 import java.util.Scanner;
 
-public class Main {
-        public static void main(String [] arguments){
-        ContactsManager contactsManager = new ContactsManager();
+public class UIconsole {
+    ContactsManager contactsManager = new ContactsManager();
+
+    public UIconsole(ContactsManager contactsManager){
+        this.contactsManager=contactsManager;
+    }
+
+
+    public void start(){
 
         System.out.println("****************INTERFACE COMMAND LINE********************");
         Boolean boucle = true ;
+        Scanner sc = new Scanner (System.in);
         while(boucle){
             System.out.println(" Bienvenue dans votre Manager de Contacts. \n" +
                     "Veuillez entrer le numéro de l'action à effectuer parmi les propositions ci-dessous : \n" +
@@ -17,11 +24,10 @@ public class Main {
                     "3. Rechercher un contact par son nom \n" +
                     "4. Exit ContactsManager");
 
-            Scanner sc = new Scanner (System.in);
             int choice = Integer.parseInt(sc.nextLine());
             String result= "" ;
             switch (choice){
-                case 1:  result = AjouterContact(contactsManager);
+                case 1:  result = AjouterContact(contactsManager, sc);
                     break;
                 case 2: contactsManager.printAllContacts() ;
                     break ;
@@ -37,9 +43,8 @@ public class Main {
 
     }
 
-    private static String AjouterContact(ContactsManager cm) {
+    private static String AjouterContact(ContactsManager cm, Scanner sc) {
         System.out.println("Entrez le nom et prénom :");
-        Scanner sc = new Scanner(System.in);
         String name = sc.nextLine();
         System.out.println("Entrez le mail :");
         String email = sc.nextLine();
@@ -67,5 +72,9 @@ public class Main {
         String name = sc.nextLine();
         cm.searchContactByName(name);
 
+    }
+
+    public static void main(String[] args) {
+        new UIconsole(new ContactsManager()).start();
     }
 }
