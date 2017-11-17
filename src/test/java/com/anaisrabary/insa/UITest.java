@@ -18,7 +18,7 @@ public class UITest {
     private static final String GUILLAUME_MEURICE_PHONE_NUMBER = "0615389254";
 
     @Test
-    public void Test_UI_when_ajouter_contact ()throws Exception{
+    public void Tester_UI_when_ajouter_contact_and_find_contact ()throws Exception{
         ContactsManager contactsManager = mock(ContactsManager.class);
         ManagerCSV fileCSV = mock(ManagerCSV.class);
         String entree = "add\n"+NICOLE_FERRONI_NAME+"\n"+NICOLE_FERRONI_EMAIL+"\n"+NICOLE_FERRONI_PHONE_NUMBER+"\nfind\nnicole\nexit\n";
@@ -32,13 +32,10 @@ public class UITest {
         inOrder.verify(contactsManager).addContact(NICOLE_FERRONI_NAME,NICOLE_FERRONI_EMAIL,NICOLE_FERRONI_PHONE_NUMBER);
         inOrder.verify(contactsManager).searchContactByName("nicol");
         inOrder.verifyNoMoreInteractions();
-
     }
 
-
-    // TODO : finir les tests de UI ATTENTION : faire du JUnit aussi
     @Test
-    public void tester_UI_when_print_all_contacts () throws Exception{
+    public void Tester_UI_when_print_all_contacts () throws Exception{
         ContactsManager contactsManager = mock(ContactsManager.class);
         ManagerCSV fileCSV = mock(ManagerCSV.class);
         String entree = "add\n"+NICOLE_FERRONI_NAME+"\n"+NICOLE_FERRONI_EMAIL+"\n"+NICOLE_FERRONI_PHONE_NUMBER+
@@ -57,8 +54,10 @@ public class UITest {
         inOrder.verifyNoMoreInteractions();
     }
 
+
+    // TODO : finir les tests de UI ATTENTION : faire du JUnit aussi
     @Test
-    public void tester_UI_Rechercher_contact_par_son_nom() throws Exception{System.out.println("TODO") ;}
+    public void Tester_UI_when_find_contact_not_added() throws Exception{System.out.println("TODO") ;}
 
     @Test
     public void tester_UI_Ajouter_mauvais_contact()throws Exception{System.out.println("TODO") ;}

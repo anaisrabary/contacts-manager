@@ -104,6 +104,13 @@ public class ContactsManagerMust {
         assertThat(standardOutput(), is(expectedOutput + System.lineSeparator()));
     }
 
+    //TODO : Tests pour modifier un contact et ajouter un contact
+    @Test
+    public void modified_some_fields_of_a_contact() throws Exception {
+
+    }
+
+
     private String standardOutput()throws Exception {
         return out.toString();
     }

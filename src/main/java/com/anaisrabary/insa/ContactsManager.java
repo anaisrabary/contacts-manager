@@ -17,8 +17,6 @@ public class ContactsManager {
             if (!Is_email_invalid(email)) throw new InvalidEmailException();
             else contacts.add( new Contact(name,email,phoneNumber));
         }
-
-
     }
 
     public void printAllContacts() {
@@ -29,7 +27,6 @@ public class ContactsManager {
             sj.add(ite.next().toString());
         }
         System.out.println(sj.toString());
-
     }
 
     public void searchContactByName(String name) {
@@ -44,6 +41,8 @@ public class ContactsManager {
         }
         System.out.println(sj.toString());
     }
+
+    //TODO Modifier contact et Supprimer contact
 
     private Boolean Is_email_invalid(String email){
         if (email == null) return true;
