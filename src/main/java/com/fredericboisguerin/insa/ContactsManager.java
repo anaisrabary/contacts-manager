@@ -55,6 +55,14 @@ public class ContactsManager {
         if (name.isEmpty()) return false;
         else return true;
     }
+    public List<String[]> recupererTousContacts() {
+        List<String[]> list = new ArrayList<String[]>();
+        for (Contact contact: this.contacts) {
+            list.add(contact.toString().split(", "));
+        }
+        return list;
+    }
+
     }
 
 
