@@ -1,4 +1,4 @@
-package com.fredericboisguerin.insa;
+package com.anaisrabary.insa;
 
 public class Contact {
         private final String name ;

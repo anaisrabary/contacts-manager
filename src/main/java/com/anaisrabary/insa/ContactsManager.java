@@ -1,4 +1,4 @@
-package com.fredericboisguerin.insa;
+package com.anaisrabary.insa;
 
 
 import java.util.ArrayList;
@@ -47,7 +47,7 @@ public class ContactsManager {
 
     private Boolean Is_email_invalid(String email){
         if (email == null) return true;
-        if (!(email.contains("@"))) return false;
+        if (!email.matches("[A-Za-z0-9._-]+@[a-z0-9._-]{2,}.[a-z]{2,4}")) return false;
         else return true ;
     }
     private Boolean Is_name_valid(String name){
@@ -56,13 +56,12 @@ public class ContactsManager {
         else return true;
     }
     public List<String[]> recupererTousContacts() {
-        List<String[]> list = new ArrayList<String[]>();
+        List<String[]> list = new ArrayList<>();
         for (Contact contact: this.contacts) {
             list.add(contact.toString().split(", "));
         }
         return list;
     }
-
     }
 
 

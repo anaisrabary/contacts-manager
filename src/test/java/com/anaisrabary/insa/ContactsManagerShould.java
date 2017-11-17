@@ -1,4 +1,4 @@
-package com.fredericboisguerin.insa;
+package com.anaisrabary.insa;
 
 import org.junit.Test;
 

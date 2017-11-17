@@ -1,4 +1,4 @@
-package com.fredericboisguerin.insa;
+package com.anaisrabary.insa;
 
 public class InvalidEmailException extends Exception {
 

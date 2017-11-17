@@ -1,4 +1,4 @@
-package com.fredericboisguerin.insa;
+package com.anaisrabary.insa;
 
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
@@ -54,7 +54,7 @@ public class ManagerCSV {
     public void writeData(ContactsManager cm){
         System.out.printf("-------- WRITING DATA IN : %s --------\n", outputFileName);
         try {
-            CSVWriter writer = new CSVWriter(new FileWriter(FileDescriptor.out));
+            CSVWriter writer = new CSVWriter(new FileWriter(outputFileName));
             writer.writeAll(cm.recupererTousContacts());
             writer.close();
             System.out.println("-------DONE ! -------\n");
