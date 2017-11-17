@@ -21,7 +21,7 @@ public class UITest {
     public void Test_UI_when_ajouter_contact ()throws Exception{
         ContactsManager contactsManager = mock(ContactsManager.class);
         ManagerCSV fileCSV = mock(ManagerCSV.class);
-        String entree = "add\nJames\njames@007.com\n007\nfind\njame\nexit\n";
+        String entree = "add\n"+NICOLE_FERRONI_NAME+"\n"+NICOLE_FERRONI_EMAIL+"\n"+NICOLE_FERRONI_PHONE_NUMBER+"\nfind\nnicole\nexit\n";
         System.setIn(new ByteArrayInputStream(entree.getBytes()));
 
         when(fileCSV.readData()).thenReturn(contactsManager);
@@ -29,8 +29,8 @@ public class UITest {
         new UIconsole(fileCSV).start();
 
         InOrder inOrder = inOrder(contactsManager);
-        inOrder.verify(contactsManager).addContact("James","james@007.com","007" );
-        inOrder.verify(contactsManager).searchContactByName("jame");
+        inOrder.verify(contactsManager).addContact(NICOLE_FERRONI_NAME,NICOLE_FERRONI_EMAIL,NICOLE_FERRONI_PHONE_NUMBER);
+        inOrder.verify(contactsManager).searchContactByName("nicol");
         inOrder.verifyNoMoreInteractions();
 
     }
@@ -38,7 +38,24 @@ public class UITest {
 
     // TODO : finir les tests de UI ATTENTION : faire du JUnit aussi
     @Test
-    public void tester_UI_imprimer_contacts () throws Exception{ System.out.println("TODO") ;}
+    public void tester_UI_when_print_all_contacts () throws Exception{
+        ContactsManager contactsManager = mock(ContactsManager.class);
+        ManagerCSV fileCSV = mock(ManagerCSV.class);
+        String entree = "add\n"+NICOLE_FERRONI_NAME+"\n"+NICOLE_FERRONI_EMAIL+"\n"+NICOLE_FERRONI_PHONE_NUMBER+
+                "\nadd\n"+GUILLAUME_MEURICE_NAME+"\n"+GUILLAUME_MEURICE_EMAIL+"\n"+GUILLAUME_MEURICE_PHONE_NUMBER+
+                "\nprint\nexit\n";
+        System.setIn(new ByteArrayInputStream(entree.getBytes()));
+
+        when(fileCSV.readData()).thenReturn(contactsManager);
+
+        new UIconsole(fileCSV).start();
+
+        InOrder inOrder = inOrder(contactsManager);
+        inOrder.verify(contactsManager).addContact(NICOLE_FERRONI_NAME,NICOLE_FERRONI_EMAIL,NICOLE_FERRONI_PHONE_NUMBER);
+        inOrder.verify(contactsManager).addContact(GUILLAUME_MEURICE_NAME,GUILLAUME_MEURICE_EMAIL,GUILLAUME_MEURICE_PHONE_NUMBER);
+        inOrder.verify(contactsManager).printAllContacts();
+        inOrder.verifyNoMoreInteractions();
+    }
 
     @Test
     public void tester_UI_Rechercher_contact_par_son_nom() throws Exception{System.out.println("TODO") ;}
