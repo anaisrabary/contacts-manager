@@ -52,7 +52,7 @@ public class ContactsManager {
     }
     private Boolean Is_name_valid(String name){
         if (name == null) return false;
-        if (name == "") return false;
+        if (name.isEmpty()) return false;
         else return true;
     }
     }
