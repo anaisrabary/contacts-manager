@@ -1,4 +1,4 @@
-package com.anaisrabary.insa;
+package com.anaisrabary.insa.core.model;
 
 public class Contact {
         private final String name ;

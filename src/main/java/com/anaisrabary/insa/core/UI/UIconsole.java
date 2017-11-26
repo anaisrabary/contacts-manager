@@ -1,8 +1,14 @@
-package com.anaisrabary.insa;
+package com.anaisrabary.insa.core.UI;
 
+
+import com.anaisrabary.insa.core.model.ManagerCSV;
+import com.anaisrabary.insa.core.Service.ContactsManager;
+import com.anaisrabary.insa.core.Service.InvalidContactNameException;
+import com.anaisrabary.insa.core.Service.InvalidEmailException;
 
 import java.util.Scanner;
 
+// TODO : CF COrriger : séparer le menu !!
 public class UIconsole {
     private ContactsManager contactsManager;
     private Scanner sc ;
@@ -69,7 +75,7 @@ public class UIconsole {
             String phoneNumber = sc.nextLine();
             contactsManager.addContact(name,email,phoneNumber);
             System.out.println("---------Vous avez ajouté le contact-------------") ;
-        }catch (InvalidEmailException  e){
+        }catch (InvalidEmailException e){
             System.out.println("---------Le mail que vous avez entré n'est pas correct -----------");
 
         }catch (InvalidContactNameException e){

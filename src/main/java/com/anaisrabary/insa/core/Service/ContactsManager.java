@@ -1,5 +1,7 @@
-package com.anaisrabary.insa;
+package com.anaisrabary.insa.core.Service;
 
+
+import com.anaisrabary.insa.core.model.Contact;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -12,11 +14,14 @@ public class ContactsManager {
     private List<Contact> contacts = new ArrayList<>();
 
     public void addContact(String name, String email, String phoneNumber)throws Exception{
-        if (!Is_name_valid(name)) throw new InvalidContactNameException();
+        if (!Is_name_valid(name))
+            throw new InvalidContactNameException();
         else{
-            if (!Is_email_invalid(email)) throw new InvalidEmailException();
-            else contacts.add( new Contact(name,email,phoneNumber));
+            if (!Is_email_invalid(email))
+                throw new InvalidEmailException();
         }
+        contacts.add( new Contact(name,email,phoneNumber));
+
     }
 
     public void printAllContacts() {
@@ -27,6 +32,7 @@ public class ContactsManager {
             sj.add(ite.next().toString());
         }
         System.out.println(sj.toString());
+
     }
 
     public void searchContactByName(String name) {
@@ -40,6 +46,16 @@ public class ContactsManager {
             }
         }
         System.out.println(sj.toString());
+
+        /* AUTRE SOLUTION
+        List<Contact> matchingContacts = contacts.stream()
+                .filter(contact -> contact.nameMatches(name))
+                .collect(Collectors.toList());
+        if (matchingContacts.size() > 0) {
+            matchingContacts.forEach(this::print);
+        } else {
+            System.out.println("No contact found with name : " + name);
+        }*/
     }
 
     //TODO Modifier contact et Supprimer contact
@@ -61,6 +77,6 @@ public class ContactsManager {
         }
         return list;
     }
-    }
+}
 
 

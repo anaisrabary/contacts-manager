@@ -1,5 +1,6 @@
-package com.anaisrabary.insa;
+package com.anaisrabary.insa.core.service;
 
+import com.anaisrabary.insa.core.Service.ContactsManager;
 import org.junit.Before;
 import org.junit.Test;
 

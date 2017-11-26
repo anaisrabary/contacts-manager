@@ -1,5 +1,8 @@
-package com.anaisrabary.insa;
+package com.anaisrabary.insa.core.model;
 
+import com.anaisrabary.insa.core.Service.ContactsManager;
+import com.anaisrabary.insa.core.Service.InvalidContactNameException;
+import com.anaisrabary.insa.core.Service.InvalidEmailException;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
 

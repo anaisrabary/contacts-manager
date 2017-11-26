@@ -1,5 +1,7 @@
-package com.anaisrabary.insa;
+package com.anaisrabary.insa.core.UI;
 
+import com.anaisrabary.insa.core.Service.ContactsManager;
+import com.anaisrabary.insa.core.model.ManagerCSV;
 import org.junit.Test;
 import org.mockito.InOrder;
 
